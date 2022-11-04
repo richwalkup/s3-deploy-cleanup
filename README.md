@@ -26,7 +26,8 @@ Options:
   like a typical block storage device. The timestamp of the first object with a given prefix will be used 
   as the timestamp for the deployment. This timestamp may not be representative of the earliest timestamp 
   in the prefix but has been used as a "close enough" representation as an optimization to avoid querying 
-  every object in the bucket. If deployments  
+  every object in the bucket. If deployments happen very frequently to where a second deployment could 
+  happen before the prior one is fully published to S3, this optimization should be removed.
 
 ### TODO:
 * Add key/prefix count tracking for output visibility
